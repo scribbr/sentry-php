@@ -183,11 +183,19 @@ final class ErrorHandler
 
         $this->invokeListeners($this->errorListeners, $errorAsException);
 
+        $return = false;
+
         if (null !== $this->previousErrorHandler) {
-            return false !== \call_user_func($this->previousErrorHandler, $level, $message, $file, $line);
+            $return = false !== \call_user_func($this->previousErrorHandler, $level, $message, $file, $line);
         }
 
-        return false;
+        // Workaround for https://bugs.php.net/63206
+        // this way we are 100% sure we don't get unregistered
+        // downside is that any error handler possibly assigned
+        // in a previous error handler or transport is unsupported
+        set_error_handler([$this, 'handleError'], E_ALL);
+
+        return $return;
     }
 
     /**

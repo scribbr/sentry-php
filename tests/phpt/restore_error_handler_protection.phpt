@@ -44,9 +44,21 @@ Hub::getCurrent()->bindClient($client);
 
 @trigger_error('foo', E_USER_DEPRECATED);
 @trigger_error('bar', E_USER_DEPRECATED);
+@trigger_error('foo', E_USER_DEPRECATED);
+@trigger_error('bar', E_USER_DEPRECATED);
+@trigger_error('foo', E_USER_DEPRECATED);
+@trigger_error('bar', E_USER_DEPRECATED);
 
 ?>
 --EXPECTF--
+Transport called
+I handle errors!
+Transport called
+I handle errors!
+Transport called
+I handle errors!
+Transport called
+I handle errors!
 Transport called
 I handle errors!
 Transport called

@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- ...
+
+## 1.11.0 (2019-05-22)
+
 - Fixed curl verify host for synchronous mode (#767)
 - Use `mb_substr` instead of `substr` if available (#734)
 - Make it possible to change `default_max_depth` in `Raven_Serializer` (#632)

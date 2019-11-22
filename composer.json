@@ -24,7 +24,7 @@
         "php-http/message": "^1.5",
         "psr/http-message-implementation": "^1.0",
         "ramsey/uuid": "^3.3",
-        "symfony/options-resolver": "^2.7|^3.0|^4.0",
+        "symfony/options-resolver": "^2.7|^3.0|^4.0|^5.0",
         "zendframework/zend-diactoros": "^1.4|^2.0"
     },
     "require-dev": {
@@ -35,7 +35,7 @@
         "phpstan/phpstan": "^0.11",
         "phpstan/phpstan-phpunit": "^0.11",
         "phpunit/phpunit": "^7.5",
-        "symfony/phpunit-bridge": "^4.3",
+        "symfony/phpunit-bridge": "^4.3|^5.0",
         "vimeo/psalm": "^3.4"
     },
     "suggest": {

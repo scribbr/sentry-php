@@ -1,4 +1,5 @@
 gc -am .PHONY: test
+DIR := ${CURDIR}
 
 develop: update-submodules
 	composer install --dev
@@ -9,13 +10,13 @@ update-submodules:
 	git submodule update
 
 cs:
-	vendor/bin/php-cs-fixer fix --config=.php_cs --verbose --diff
+	docker run --rm -v $(DIR):/project -w /project jakzal/phpqa:alpine php-cs-fixer fix --verbose --diff
 
 cs-dry-run:
-	vendor/bin/php-cs-fixer fix --config=.php_cs --verbose --diff --dry-run
+	docker run --rm -v $(DIR):/project -w /project jakzal/phpqa:alpine php-cs-fixer fix --verbose --diff --dry-run
 
 cs-fix:
-	vendor/bin/php-cs-fixer fix
+	docker run --rm -v $(DIR):/project -w /project jakzal/phpqa:alpine php-cs-fixer fix
 
 phpstan:
 	vendor/bin/phpstan analyse
